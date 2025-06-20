@@ -1,0 +1,34 @@
+#include "buttonController.h"
+#include "oledController.h"
+#include "heaterController.h"
+
+int count = 0;
+
+void checkButton() {
+	if (g_f_sw_up) {		// 온도 상승 버튼 클릭
+		g_f_sw_up = 0;
+		count++;
+		temper_up();
+	}
+	if (g_f_sw_down) {		// 온도 하강 버튼 클릭
+		g_f_sw_down = 0;
+		temper_down();
+	}
+	if (g_f_sw_fix) {		// 온도 설정 버튼 클릭
+		g_f_sw_fix = 0;
+		startToggle();		// 온도 설정됐다는 의미로 두번 깜빡임
+		setFixedTemper();	// 온도 설정
+	}
+	if (g_f_sw_on) {
+		g_f_sw_on = 0;
+	}
+
+}
+
+ON_OFF_t getSwState(){		// 스위치
+	if(HAL_GPIO_ReadPin(PB12_START_SW_PIN_GPIO_Port_GPIO_Port, PB12_START_SW_PIN_GPIO_Port_Pin)) {
+		return OFF_t;
+	} else {
+		return ON_t;
+	}
+}

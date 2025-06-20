@@ -1,0 +1,24 @@
+18:16:27 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/buttonController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/buttonController.d" -MT"Core/Src/buttonController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/buttonController.o"
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:38:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   38 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+
+18:16:29 Build Finished. 0 errors, 1 warnings. (took 1s.980ms)
+
