@@ -14705,3 +14705,749 @@ Finished building: default.size.stdout
  
 Finished building: 3rd.list
  
+17:35:15 **** Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+17:57:26 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Lib/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/onewire.d" -MT"Core/Lib/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/onewire.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43492	    484	   3436	  47412	   b934	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+18:00:22 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+15:32:17 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+arm-none-eabi-gcc "../Core/Lib/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/onewire.d" -MT"Core/Lib/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/onewire.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+15:32:43 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+15:32:49 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+19:11:22 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/buttonController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/buttonController.d" -MT"Core/Src/buttonController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/buttonController.o"
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/ledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ledController.d" -MT"Core/Src/ledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/ledController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc "../Core/Lib/Src/onewire.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/onewire.d" -MT"Core/Lib/Src/onewire.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/onewire.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+19:18:31 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+19:57:36 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc "../Core/Lib/Src/ssd1306.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ssd1306.d" -MT"Core/Lib/Src/ssd1306.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ssd1306.o"
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:14:10 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:15:11 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:16:59 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+20:17:19 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43556	    484	   3436	  47476	   b974	3rd.elf
+Finished building: default.size.stdout
+ 
+20:22:42 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43612	    484	   3436	  47532	   b9ac	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:24:28 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/buttonController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/buttonController.d" -MT"Core/Src/buttonController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/buttonController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/buttonController.c: In function 'checkButton':
+../Core/Src/buttonController.c:9:17: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+    9 |                 printf("[DEBUG] UP\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:4:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    3 | #include "heaterController.h"
+  +++ |+#include <stdio.h>
+    4 | 
+../Core/Src/buttonController.c:9:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+    9 |                 printf("[DEBUG] UP\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:9:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:16:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   16 |                 printf("[DEBUG] DOWN\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:16:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:22:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   22 |                 printf("[DEBUG] FIX\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:22:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:29:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   29 |                 printf("[DEBUG] ON\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:29:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:31:19 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+../Core/Src/heaterController.c: In function 'heaterOnOff':
+../Core/Src/heaterController.c:64:17: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   64 |                 printf("[DEBUG] HeaterOn\n");
+      |                 ^~~~~~
+../Core/Src/heaterController.c:4:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    3 | #include "ledController.h"
+  +++ |+#include <stdio.h>
+    4 | 
+../Core/Src/heaterController.c:64:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   64 |                 printf("[DEBUG] HeaterOn\n");
+      |                 ^~~~~~
+../Core/Src/heaterController.c:64:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/heaterController.c:67:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   67 |                 printf("[DEBUG] HeaterOff\n");
+      |                 ^~~~~~
+../Core/Src/heaterController.c:67:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43708	    484	   3436	  47628	   ba0c	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:36:32 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:37:28 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:40:33 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/buttonController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/buttonController.d" -MT"Core/Src/buttonController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/buttonController.o"
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/buttonController.c: In function 'checkButton':
+../Core/Src/buttonController.c:9:17: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+    9 |                 printf("[DEBUG] UP\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:4:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    3 | #include "heaterController.h"
+  +++ |+#include <stdio.h>
+    4 | 
+../Core/Src/buttonController.c:9:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+    9 |                 printf("[DEBUG] UP\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:9:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:16:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   16 |                 printf("[DEBUG] DOWN\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:16:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:22:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   22 |                 printf("[DEBUG] FIX\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:22:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:29:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   29 |                 printf("[DEBUG] ON\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:29:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+20:52:59 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/stm32f1xx_it.c:270:6: error: redefinition of 'HAL_GPIO_EXTI_Callback'
+  270 | void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/stm32f1xx_it.c:229:6: note: previous definition of 'HAL_GPIO_EXTI_Callback' with type 'void(uint16_t)' {aka 'void(short unsigned int)'}
+  229 | void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+      |      ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:57: error: 'prev_fixed' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                         ^~~~~~~~~~
+../Core/Src/main.c:166:57: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:166:69: error: 'm_fixed_temper' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                                     ^~~~~~~~~~~~~~
+../Core/Src/stm32f1xx_it.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/stm32f1xx_it.c:272:21: error: 'PB1_TEMP_SET_DOWN_Pin' undeclared (first use in this function); did you mean 'PB2_TEMP_SET_DOWN_Pin'?
+  272 |     if (GPIO_Pin == PB1_TEMP_SET_DOWN_Pin)
+      |                     ^~~~~~~~~~~~~~~~~~~~~
+      |                     PB2_TEMP_SET_DOWN_Pin
+../Core/Src/stm32f1xx_it.c:272:21: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:52: Core/Src/stm32f1xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+20:53:18 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:57: error: 'prev_fixed' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                         ^~~~~~~~~~
+../Core/Src/main.c:166:57: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32f1xx_it.c: In function 'HAL_GPIO_EXTI2_Callback':
+../Core/Src/stm32f1xx_it.c:272:21: error: 'PB1_TEMP_SET_DOWN_Pin' undeclared (first use in this function); did you mean 'PB2_TEMP_SET_DOWN_Pin'?
+  272 |     if (GPIO_Pin == PB1_TEMP_SET_DOWN_Pin)
+      |                     ^~~~~~~~~~~~~~~~~~~~~
+      |                     PB2_TEMP_SET_DOWN_Pin
+../Core/Src/stm32f1xx_it.c:272:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:166:69: error: 'm_fixed_temper' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                                     ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/stm32f1xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+20:53:35 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:57: error: 'prev_fixed' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                         ^~~~~~~~~~
+../Core/Src/main.c:166:57: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:166:69: error: 'm_fixed_temper' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                                     ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+20:54:09 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:166:57: error: 'prev_fixed' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                         ^~~~~~~~~~
+../Core/Src/main.c:166:57: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:166:69: error: 'm_fixed_temper' undeclared (first use in this function)
+  166 |                   printf("[DEBUG] temper : %d -> %d\n", prev_fixed, m_fixed_temper);
+      |                                                                     ^~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:52: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+20:54:22 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+11:29:24 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+13:13:18 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+13:33:42 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+14:38:56 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+14:49:21 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+14:52:52 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+14:46:30 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+14:49:06 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+14:55:00 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+15:15:57 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+15:49:29 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/buttonController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/buttonController.d" -MT"Core/Src/buttonController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/buttonController.o"
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/buttonController.c: In function 'checkButton':
+../Core/Src/buttonController.c:9:17: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+    9 |                 printf("[DEBUG] UP\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:4:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    3 | #include "heaterController.h"
+  +++ |+#include <stdio.h>
+    4 | 
+../Core/Src/buttonController.c:9:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+    9 |                 printf("[DEBUG] UP\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:9:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:16:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   16 |                 printf("[DEBUG] DOWN\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:16:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:22:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   22 |                 printf("[DEBUG] FIX\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:22:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/buttonController.c:29:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   29 |                 printf("[DEBUG] ON\n");
+      |                 ^~~~~~
+../Core/Src/buttonController.c:29:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43644	    484	   3436	  47564	   b9cc	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+15:55:26 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43636	    484	   3436	  47556	   b9c4	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+16:01:53 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43708	    484	   3436	  47628	   ba0c	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+16:32:38 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43708	    484	   3436	  47628	   ba0c	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+16:41:10 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43716	    484	   3436	  47636	   ba14	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+16:45:02 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43716	    484	   3436	  47636	   ba14	3rd.elf
+Finished building: default.size.stdout
+ 
+16:47:54 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43716	    484	   3436	  47636	   ba14	3rd.elf
+Finished building: default.size.stdout
+ 
+17:58:40 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/buttonController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/buttonController.d" -MT"Core/Src/buttonController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/buttonController.o"
+arm-none-eabi-gcc "../Core/Src/fnd_controller.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/fnd_controller.d" -MT"Core/Src/fnd_controller.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/fnd_controller.o"
+arm-none-eabi-gcc "../Core/Src/heaterController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/heaterController.d" -MT"Core/Src/heaterController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/heaterController.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/oledController.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/oledController.d" -MT"Core/Src/oledController.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/oledController.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Lib/Src/ds18b20.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/Core/Lib/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Lib/Src/ds18b20.d" -MT"Core/Lib/Src/ds18b20.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Lib/Src/ds18b20.o"
+../Core/Lib/Src/ds18b20.c: In function 'isBusy':
+../Core/Lib/Src/ds18b20.c:38:16: warning: implicit declaration of function 'isBusyLine'; did you mean 'isBusy'? [-Wimplicit-function-declaration]
+   38 |         return isBusyLine();
+      |                ^~~~~~~~~~
+      |                isBusy
+../Core/Src/heaterController.c: In function 'temper_up':
+../Core/Src/heaterController.c:36:9: warning: implicit declaration of function 'printTemper'; did you mean 'printprintTemper'? [-Wimplicit-function-declaration]
+   36 |         printTemper(m_desired_temper);          // 설정 온도 출력
+      |         ^~~~~~~~~~~
+      |         printprintTemper
+arm-none-eabi-gcc -o "3rd.elf" @"objects.list"   -mcpu=cortex-m3 -T"/Users/seungjunyoon/STM32CubeIDE/workspace_1.15.1/3rd/3rd/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3rd.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3rd.elf
+ 
+arm-none-eabi-size  3rd.elf 
+arm-none-eabi-objdump -h -S 3rd.elf  > "3rd.list"
+   text	   data	    bss	    dec	    hex	filename
+  43396	    484	   3436	  47316	   b8d4	3rd.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3rd.list
+ 
+17:58:54 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43396	    484	   3436	  47316	   b8d4	3rd.elf
+Finished building: default.size.stdout
+ 
+17:59:09 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43396	    484	   3436	  47316	   b8d4	3rd.elf
+Finished building: default.size.stdout
+ 
+17:59:51 **** Incremental Build of configuration Debug for project 3rd ****
+make -j7 all 
+arm-none-eabi-size  3rd.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43396	    484	   3436	  47316	   b8d4	3rd.elf
+Finished building: default.size.stdout
+ 

@@ -5,30 +5,33 @@
 int count = 0;
 
 void checkButton() {
-	if (g_f_sw_up) {		// 온도 상승 버튼 클릭
+	if (g_f_sw_up) {
 		g_f_sw_up = 0;
 		count++;
 		temper_up();
 	}
-	if (g_f_sw_down) {		// 온도 하강 버튼 클릭
+
+	if (g_f_sw_down) {
 		g_f_sw_down = 0;
 		temper_down();
 	}
-	if (g_f_sw_fix) {		// 온도 설정 버튼 클릭
+
+	if (g_f_sw_fix) {
 		g_f_sw_fix = 0;
-		startToggle();		// 온도 설정됐다는 의미로 두번 깜빡임
-		setFixedTemper();	// 온도 설정
+		startToggle();
+		setFixedTemper();
 	}
-	if (g_f_sw_on) {		// 드라이기 동작
+
+	if (g_f_sw_on) {
 		g_f_sw_on = 0;
 	}
-
 }
 
-ON_OFF_t getSwState(){		// 스위치
+
+ON_OFF_t getSwState(){		// 전원 스위치
 	if(HAL_GPIO_ReadPin(PB12_START_SW_PIN_GPIO_Port_GPIO_Port, PB12_START_SW_PIN_GPIO_Port_Pin)) {
-		return OFF_t;
+		return OFF_t;	// High일 경우 전원 OFF
 	} else {
-		return ON_t;
+		return ON_t;	// Low일 경우 전원 ON
 	}
 }

@@ -138,21 +138,21 @@ int main(void)
 	while (1)
 	  {
 
-		checkButton();
+		checkButton();		// 버튼 상태 반영위해 호출
 
-		  if((m_count > 100) || !m_first){
-			  if(!isConverting()){
+		  if((m_count > 100) || !m_first){	// 첫 실행이라면
+			  if(!isConverting()){		// 변환을 안했으면 시작
 					  StartConverting();
 				  }
 
 				  checkConverting();
 
 				  if(!isConverting()){
-					  temper = getTemper();
-					  if(getSwState() == ON_t){
+					  temper = getTemper();	// 온도 읽어와서 temper에 저장
+					  if(getSwState() == ON_t){		// 전원 스위치가 켜져 있으면
 						  heaterControl(temper);
-					  }else{
-						  if(getHeaterState() == ON_t){
+					  }else{	// 전원이 꺼져있으면
+						  if(getHeaterState() == ON_t){	// 히터가 켜져있어도 끔
 							  heaterOnOff(OFF_t);
 						  }
 					  }
@@ -163,7 +163,6 @@ int main(void)
 
 		  m_count++;
 		  HAL_Delay(10);
-
 
     /* USER CODE END WHILE */
 
@@ -432,7 +431,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, PA2_TEMP_DATA_Pin|PA3_TEMP_DATA_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, FND_RCLK_Pin|PB6_LED1_Pin|PB7_LED1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, FND_RCLK_Pin|PB6_LED1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, PB7_LED1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(PB5_RELAY_ON_OFF_CTRL_GPIO_Port, PB5_RELAY_ON_OFF_CTRL_Pin, GPIO_PIN_RESET);

@@ -19,11 +19,11 @@
 #include "onewire.h"
 #include "ds18b20Config.h"
 //#include "tim.h"
+
 static uint8_t m_busy_line =0;
-uint8_t isBusyLine(){
 
+uint8_t isBusyLine(){		// m_busy_line은 0이므로 한가한 상태
 	return m_busy_line;
-
 }
 
 void ONEWIRE_DELAY(uint16_t time_us)
@@ -31,14 +31,17 @@ void ONEWIRE_DELAY(uint16_t time_us)
 	_DS18B20_TIMER.Instance->CNT = 0;
 	while(_DS18B20_TIMER.Instance->CNT <= time_us);
 }
-void ONEWIRE_LOW(OneWire_t *gp)
+
+void ONEWIRE_LOW(OneWire_t *gp)		// GPIO핀 LOW 출력
 {
 	gp->GPIOx->BSRR = gp->GPIO_Pin<<16;
 }	
-void ONEWIRE_HIGH(OneWire_t *gp)
+
+void ONEWIRE_HIGH(OneWire_t *gp)	// GPIO핀 HIGH 출력
 {
 	gp->GPIOx->BSRR = gp->GPIO_Pin;
 }	
+
 void ONEWIRE_INPUT(OneWire_t *gp)
 {
 	GPIO_InitTypeDef	gpinit;
@@ -58,7 +61,7 @@ void ONEWIRE_OUTPUT(OneWire_t *gp)
 	HAL_GPIO_Init(gp->GPIOx,&gpinit);
 
 }
-void OneWire_Init(OneWire_t* OneWireStruct, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) 
+void OneWire_Init(OneWire_t* OneWireStruct, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin) // OneWire 통신 시작
 {	
 	m_busy_line = 0;
 	HAL_TIM_Base_Start(&_DS18B20_TIMER);
@@ -66,9 +69,9 @@ void OneWire_Init(OneWire_t* OneWireStruct, GPIO_TypeDef* GPIOx, uint16_t GPIO_P
 	OneWireStruct->GPIOx = GPIOx;
 	OneWireStruct->GPIO_Pin = GPIO_Pin;
 	ONEWIRE_OUTPUT(OneWireStruct);
-	ONEWIRE_HIGH(OneWireStruct);
+	ONEWIRE_HIGH(OneWireStruct);		// 초기상태 : High (출력)
 	OneWireDelay(1000);
-	ONEWIRE_LOW(OneWireStruct);
+	ONEWIRE_LOW(OneWireStruct);			// 테스트용
 	OneWireDelay(1000);
 	ONEWIRE_HIGH(OneWireStruct);
 	OneWireDelay(2000);
@@ -79,16 +82,16 @@ inline uint8_t OneWire_Reset(OneWire_t* OneWireStruct)
 	uint8_t i;
 	
 	/* Line low, and wait 480us */
-	ONEWIRE_LOW(OneWireStruct);
+	ONEWIRE_LOW(OneWireStruct);		// 마스터가 Low로 떨어트리며 시작 신호를 보냄
 	ONEWIRE_OUTPUT(OneWireStruct);
-	ONEWIRE_DELAY(480);
+	ONEWIRE_DELAY(480);		// 최소 480us 대기 (Reset Pulse)
 	ONEWIRE_DELAY(20);
 	/* Release line and wait for 70us */
 	m_busy_line = 1;
-	ONEWIRE_INPUT(OneWireStruct);
-	ONEWIRE_DELAY(70);
+	ONEWIRE_INPUT(OneWireStruct);		// 입력모드로 전환
+	ONEWIRE_DELAY(70);		// 응답 대기 시간 (70us 지난 후)
 	/* Check bit value */
-	i = HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin);
+	i = HAL_GPIO_ReadPin(OneWireStruct->GPIOx, OneWireStruct->GPIO_Pin); // Low 상태이면 슬레이브가 응답한 것
 	m_busy_line = 0;
 	
 	/* Delay for 410 us */

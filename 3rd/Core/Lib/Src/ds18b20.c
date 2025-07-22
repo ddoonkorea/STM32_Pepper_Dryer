@@ -12,9 +12,9 @@ uint8_t		Ds18b20StartConvert=0;
 uint16_t	Ds18b20Timeout=0;
 uint8_t ROM[8];
 
-static uint8_t m_init = 0;
-static uint8_t m_busy = 0;
-static uint8_t m_isConverting = 0;
+static uint8_t m_init = 0;		// 초기화 상태
+static uint8_t m_busy = 0;		// 통신 상태
+static uint8_t m_isConverting = 0;	// 변환 상태
 
 #if (_DS18B20_USE_FREERTOS==1)
 osThreadId 	Ds18b20Handle;
@@ -36,7 +36,6 @@ uint8_t isTemperSensorInit(){
 
 uint8_t isBusy(){
 	return isBusyLine();
-	//return m_busy;
 }
 
 uint8_t isConverting(){
@@ -44,7 +43,7 @@ uint8_t isConverting(){
 	return m_isConverting;
 }
 
-bool    Ds18b20_Init_Simple(){
+bool    Ds18b20_Init_Simple(){		// 온도센서 Init부분
 		m_init = 0;
 		OneWire_Init(&OneWire,_DS18B20_GPIO ,_DS18B20_PIN);
 
@@ -57,7 +56,7 @@ bool    Ds18b20_Init_Simple(){
 		OneWire.ROM_NO[6] = 0x09;
 		OneWire.ROM_NO[7] = 0xB6;
 
-		OneWire_GetFullROM(&OneWire, temperSensor.Address);
+		OneWire_GetFullROM(&OneWire, temperSensor.Address);	// 위에서 하드코딩한 ROM 주소를 Address에 넣는다.
 		Ds18b20Delay(50);
 		DS18B20_SetResolution(&OneWire, temperSensor.Address, DS18B20_Resolution_12bits);
 		Ds18b20Delay(50);
@@ -66,57 +65,56 @@ bool    Ds18b20_Init_Simple(){
 		return true;
 }
 
-bool	Ds18b20_Init(void)
-{
-	uint8_t	Ds18b20TryToFind=5;
-	do
-	{
-		OneWire_Init(&OneWire,_DS18B20_GPIO ,_DS18B20_PIN);
-		TempSensorCount = 0;	
-		while(HAL_GetTick() < 3000)
-			Ds18b20Delay(100);
-		OneWireDevices = OneWire_First(&OneWire); //주소를 찾는 동작.
-		while (OneWireDevices)
-		{
-			Ds18b20Delay(100);
-			TempSensorCount++;
-			OneWire_GetFullROM(&OneWire, ds18b20[TempSensorCount-1].Address);
-			OneWireDevices = OneWire_Next(&OneWire); //다음 장치 주소 찾는 동작.
-		}
-		if(TempSensorCount>0)
-			break;
-		Ds18b20TryToFind--;
-	}while(Ds18b20TryToFind>0);
-	if(Ds18b20TryToFind==0)
-		return false;
-
-	for (uint8_t i = 0; i < TempSensorCount; i++)
-	{
-		Ds18b20Delay(50);
-    DS18B20_SetResolution(&OneWire, ds18b20[i].Address, DS18B20_Resolution_12bits);
-		Ds18b20Delay(50);
-    DS18B20_DisableAlarmTemperature(&OneWire,  ds18b20[i].Address);
-    }
-	return true;
-}
+//bool	Ds18b20_Init(void)
+//{
+//	uint8_t	Ds18b20TryToFind=5;
+//	do
+//	{
+//		OneWire_Init(&OneWire,_DS18B20_GPIO ,_DS18B20_PIN);
+//		TempSensorCount = 0;
+//		while(HAL_GetTick() < 3000)
+//			Ds18b20Delay(100);
+//		OneWireDevices = OneWire_First(&OneWire); //주소를 찾는 동작.
+//		while (OneWireDevices)
+//		{
+//			Ds18b20Delay(100);
+//			TempSensorCount++;
+//			OneWire_GetFullROM(&OneWire, ds18b20[TempSensorCount-1].Address);
+//			OneWireDevices = OneWire_Next(&OneWire); //다음 장치 주소 찾는 동작.
+//		}
+//		if(TempSensorCount>0)
+//			break;
+//		Ds18b20TryToFind--;
+//	}while(Ds18b20TryToFind>0);
+//	if(Ds18b20TryToFind==0)
+//		return false;
+//
+//	for (uint8_t i = 0; i < TempSensorCount; i++)
+//	{
+//		Ds18b20Delay(50);
+//    DS18B20_SetResolution(&OneWire, ds18b20[i].Address, DS18B20_Resolution_12bits);
+//		Ds18b20Delay(50);
+//    DS18B20_DisableAlarmTemperature(&OneWire,  ds18b20[i].Address);
+//    }
+//	return true;
+//}
 #endif
 //###########################################################################################
 
-void StartConverting(){
+void StartConverting(){		// 온도 변환 시작
 	m_busy = 1;
 	DS18B20_StartAll(&OneWire);
 	m_isConverting = 1;
 	m_busy = 0;
-
 }
 
-void checkConverting(){
+void checkConverting(){		// 변환 과정 확인
 	m_busy = 1;
 	m_isConverting = !DS18B20_AllDone(&OneWire); //완료 1,비완료 0
 	m_busy = 0;
 }
 
-float getTemper(){
+float getTemper(){		// 온도값 읽어오기
 
 	Ds18b20Delay(100);
 	m_busy = 1;
@@ -125,46 +123,46 @@ float getTemper(){
 	return temperSensor.Temperature;
 }
 
-bool	Ds18b20_ManualConvert(void)
-{
-	#if (_DS18B20_USE_FREERTOS==1)
-	Ds18b20StartConvert=1;
-	while(Ds18b20StartConvert==1)
-		Ds18b20Delay(10);
-	if(Ds18b20Timeout==0)
-		return false;
-	else
-		return true;	
-	#else	
-	Ds18b20Timeout=_DS18B20_CONVERT_TIMEOUT_MS/10;
-	DS18B20_StartAll(&OneWire); //온도 변환 시작.
-	Ds18b20Delay(100);
-	while (!DS18B20_AllDone(&OneWire))
-	{
-		Ds18b20Delay(10);  
-		Ds18b20Timeout-=1;
-		if(Ds18b20Timeout==0)
-			break;
-	}	
-	if(Ds18b20Timeout>0)
-	{
-		for (uint8_t i = 0; i < TempSensorCount; i++)
-		{
-			Ds18b20Delay(100);
-			ds18b20[i].DataIsValid = DS18B20_Read(&OneWire, ds18b20[i].Address, &ds18b20[i].Temperature);
-		}
-	}
-	else
-	{
-		for (uint8_t i = 0; i < TempSensorCount; i++)
-			ds18b20[i].DataIsValid = false;
-	}
-	if(Ds18b20Timeout==0)
-		return false;
-	else
-		return true;
-	#endif
-}
+//bool	Ds18b20_ManualConvert(void)
+//{
+//	#if (_DS18B20_USE_FREERTOS==1)
+//	Ds18b20StartConvert=1;
+//	while(Ds18b20StartConvert==1)
+//		Ds18b20Delay(10);
+//	if(Ds18b20Timeout==0)
+//		return false;
+//	else
+//		return true;
+//	#else
+//	Ds18b20Timeout=_DS18B20_CONVERT_TIMEOUT_MS/10;
+//	DS18B20_StartAll(&OneWire); //온도 변환 시작.
+//	Ds18b20Delay(100);
+//	while (!DS18B20_AllDone(&OneWire))
+//	{
+//		Ds18b20Delay(10);
+//		Ds18b20Timeout-=1;
+//		if(Ds18b20Timeout==0)
+//			break;
+//	}
+//	if(Ds18b20Timeout>0)
+//	{
+//		for (uint8_t i = 0; i < TempSensorCount; i++)
+//		{
+//			Ds18b20Delay(100);
+//			ds18b20[i].DataIsValid = DS18B20_Read(&OneWire, ds18b20[i].Address, &ds18b20[i].Temperature);
+//		}
+//	}
+//	else
+//	{
+//		for (uint8_t i = 0; i < TempSensorCount; i++)
+//			ds18b20[i].DataIsValid = false;
+//	}
+//	if(Ds18b20Timeout==0)
+//		return false;
+//	else
+//		return true;
+//	#endif
+//}
 //###########################################################################################
 #if (_DS18B20_USE_FREERTOS==1)
 void Task_Ds18b20(void const * argument)
@@ -234,29 +232,29 @@ void Task_Ds18b20(void const * argument)
 }
 #endif
 //###########################################################################################
-uint8_t DS18B20_Start(OneWire_t* OneWire, uint8_t *ROM)
-{
-	/* Check if device is DS18B20 */
-	if (!DS18B20_Is(ROM)) {
-		return 0;
-	}
-	
-	/* Reset line */
-	OneWire_Reset(OneWire);
-	/* Select ROM number */
-	OneWire_SelectWithPointer(OneWire, ROM);
-	/* Start temperature conversion */
-	OneWire_WriteByte(OneWire, DS18B20_CMD_CONVERTTEMP);
-	
-	return 1;
-}
+//uint8_t DS18B20_Start(OneWire_t* OneWire, uint8_t *ROM)
+//{
+//	/* Check if device is DS18B20 */
+//	if (!DS18B20_Is(ROM)) {
+//		return 0;
+//	}
+//
+//	/* Reset line */
+//	OneWire_Reset(OneWire);
+//	/* Select ROM number */
+//	OneWire_SelectWithPointer(OneWire, ROM);
+//	/* Start temperature conversion */
+//	OneWire_WriteByte(OneWire, DS18B20_CMD_CONVERTTEMP);
+//
+//	return 1;
+//}
 
 
 
 void DS18B20_StartAll(OneWire_t* OneWire)
 {
 	/* Reset pulse */
-	OneWire_Reset(OneWire);
+	OneWire_Reset(OneWire);		// 리셋
 	/* Skip rom */
 	OneWire_WriteByte(OneWire, ONEWIRE_CMD_SKIPROM);
 	/* Start conversion on all connected devices */
@@ -275,7 +273,6 @@ bool DS18B20_Read(OneWire_t* OneWire, uint8_t *ROM, float *destination)
 	
 	/* Check if device is DS18B20 */
 	if (!DS18B20_Is(ROM)) {
-		printf("1\r\n");
 		return false;
 	}
 	
@@ -283,7 +280,6 @@ bool DS18B20_Read(OneWire_t* OneWire, uint8_t *ROM, float *destination)
 	if (!OneWire_ReadBit(OneWire)) 
 	{
 		/* Conversion is not finished yet */
-		printf("2\r\n");
 		return false; 
 	}
 

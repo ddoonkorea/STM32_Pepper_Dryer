@@ -5,7 +5,6 @@ static SPI_HandleTypeDef * m_hspi;
 
 void init_fnd(SPI_HandleTypeDef * hspi) {
 
-
 	_LED_0F[0] = 0xC0; //0
 	_LED_0F[1] = 0xF9; //1
 	_LED_0F[2] = 0xA4; //2
@@ -56,86 +55,35 @@ void send(uint8_t X) {
 
 void send_port(uint8_t X, uint8_t port) {
 //	printf("2\r\n");
-	send(X);
-	send(port);
-	HAL_GPIO_WritePin(FND_RCLK_GPIO_Port, FND_RCLK_Pin, LOW);
-	HAL_GPIO_WritePin(FND_RCLK_GPIO_Port, FND_RCLK_Pin, HIGH);
-}
-
-void digit4_show(int n, int replay, uint8_t showZero) {
-	int n1, n2, n3, n4;
-	n1 = (int) n % 10;
-	n2 = (int) ((n % 100)) / 10;
-	n3 = (int) ((n % 1000)) / 100;
-	n4 = (int) ((n % 10000)) / 1000;
-//	printf("3\r\n");
-	 for(int i = 0; i<=replay; i++){
-		 send_port(_LED_0F[n1], 0b0001);
-	    if(showZero | n>9){send_port(_LED_0F[n2], 0b0010);}
-	    if(showZero | n>99){send_port(_LED_0F[n3], 0b0100);}
-	    if(showZero | n>999){send_port(_LED_0F[n4], 0b1000);}
-	 }
-}
-
-void digit4_replay(int n, int replay) {
-//	printf("digit4_replay\r\n");
-	digit4_show(n, replay, false);
-}
-
-void digit4(int n) {
-//	printf("digit4\r\n");
-	digit4_show(n, 0, false);
-}
-
-void digit4showZero_replay(int n, int replay) {
-//	printf("digit4showZero_replay\r\n");
-	digit4_show(n, replay, true);
-}
-
-void digit4showZero(int n) {
-//	printf("digit4showZero\r\n");
-	digit4_show(n, 0, true);
-}
-
-void digit2(int n, int port, int replay) {
-	int n1, n2;
-	n1 = (int) n % 10;
-	n2 = (int) ((n % 100) - n1) / 10;
-//	printf("digit2\r\n");
-	for (int i = 0; i <= replay; i++) {
-		send_port(_LED_0F[n1], port);
-		send_port(_LED_0F[n2], port << 1);
-	}
-}
-
-void digit2_port(int n, int port) {
-//	printf("digit2_port\r\n");
-	digit2(n, port, 0);
+	send(X);		// 어떤 문자
+	send(port);		// 어떤 자리에
+	HAL_GPIO_WritePin(FND_RCLK_GPIO_Port, FND_RCLK_Pin, LOW);		// Latch Clock 신호로 8비트 데이터를 복사
+	HAL_GPIO_WritePin(FND_RCLK_GPIO_Port, FND_RCLK_Pin, HIGH);		// High로 올리면 데이터를 출력
 }
 
 static uint8_t m_tempercount = 0;
 
-void digit4_temper(int temper) {
+void digit4_temper(int temper) {		// 센서를 통해 받아온 온도를 FND 모듈상에 출력하는 부분
 	int n1, n2, n3, n4;
 	n1 = (int) temper % 10;
 	n2 = (int) ((temper % 100)) / 10;
 	n3 = (int) ((temper)) / 100;
 	n4 = (int) ((temper)) / 1000;
-//	printf("digit4_temper\r\n");
+
 	switch (m_tempercount) {
 	case 0:
-		send_port(_LED_0F[n1], 0b0001);
+		send_port(_LED_0F[n1], 0b0001);		// 첫번째 자리에 n1의 값을 표현 (36.5도라면 5가 나옴)
 		break;
 	case 1:
-		send_port(_LED_0F[n2] & 0x7F, 0b0010);
+		send_port(_LED_0F[n2] & 0x7F, 0b0010);		// 소수점과 두번째 자리 표현
 		break;
 	case 2:
 		if (temper > 99) {
-			send_port(_LED_0F[n3], 0b0100);
+			send_port(_LED_0F[n3], 0b0100);		// 세번째 자리에 n3의 값을 표현
 		}
 		break;
 	case 3:
-		if (temper > 999) {
+		if (temper > 999) {		// 네번째 자리에 n4의 값을 표현
 			send_port(_LED_0F[n4], 0b1000);
 		}
 		break;
@@ -151,3 +99,54 @@ void digit4_temper(int temper) {
 		m_tempercount = 0;
 	}
 }
+
+//void digit4_show(int n, int replay, uint8_t showZero) {
+//	int n1, n2, n3, n4;
+//	n1 = (int) n % 10;
+//	n2 = (int) ((n % 100)) / 10;
+//	n3 = (int) ((n % 1000)) / 100;
+//	n4 = (int) ((n % 10000)) / 1000;
+////	printf("3\r\n");
+//	 for(int i = 0; i<=replay; i++){
+//		 send_port(_LED_0F[n1], 0b0001);
+//	    if(showZero | n>9){send_port(_LED_0F[n2], 0b0010);}
+//	    if(showZero | n>99){send_port(_LED_0F[n3], 0b0100);}
+//	    if(showZero | n>999){send_port(_LED_0F[n4], 0b1000);}
+//	 }
+//}
+
+//void digit4_replay(int n, int replay) {
+////	printf("digit4_replay\r\n");
+//	digit4_show(n, replay, false);
+//}
+//
+//void digit4(int n) {
+////	printf("digit4\r\n");
+//	digit4_show(n, 0, false);
+//}
+//
+//void digit4showZero_replay(int n, int replay) {
+////	printf("digit4showZero_replay\r\n");
+//	digit4_show(n, replay, true);
+//}
+//
+//void digit4showZero(int n) {
+////	printf("digit4showZero\r\n");
+//	digit4_show(n, 0, true);
+//}
+
+//void digit2(int n, int port, int replay) {
+//	int n1, n2;
+//	n1 = (int) n % 10;
+//	n2 = (int) ((n % 100) - n1) / 10;
+////	printf("digit2\r\n");
+//	for (int i = 0; i <= replay; i++) {
+//		send_port(_LED_0F[n1], port);
+//		send_port(_LED_0F[n2], port << 1);
+//	}
+//}
+//
+//void digit2_port(int n, int port) {
+////	printf("digit2_port\r\n");
+//	digit2(n, port, 0);
+//}

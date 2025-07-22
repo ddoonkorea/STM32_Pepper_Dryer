@@ -91,12 +91,12 @@ extern "C" {
 
 
 typedef struct {
-	GPIO_TypeDef* GPIOx;           /*!< GPIOx port to be used for I/O functions */
-	uint16_t GPIO_Pin;             /*!< GPIO Pin to be used for I/O functions */
-	uint8_t LastDiscrepancy;       /*!< Search private */
-	uint8_t LastFamilyDiscrepancy; /*!< Search private */
-	uint8_t LastDeviceFlag;        /*!< Search private */
-	uint8_t ROM_NO[8];             /*!< 8-bytes address of last search device */
+	GPIO_TypeDef* GPIOx;           // GPIO포트 주소
+	uint16_t GPIO_Pin;             // 사용하는 핀 번호
+	uint8_t LastDiscrepancy;       // 장치 검색
+	uint8_t LastFamilyDiscrepancy; // 장치 검색
+	uint8_t LastDeviceFlag;        // 장치 검색
+	uint8_t ROM_NO[8];             // 고유 주소 저장
 } OneWire_t;
 
 /* OneWire delay */

@@ -8,7 +8,7 @@ static uint8_t m_toggle_count = 0;
 
 void printTemperNoUpdate(int temper);
 
-void opening() {
+void opening() {		// 온도값 나오기전 시작화면
 
 	SSD1306_GotoXY(0, 0);
 	SSD1306_Puts("Start!", &Font_11x18, 1);
@@ -34,8 +34,9 @@ void opening() {
 	SSD1306_DrawBitmap(0, 0, ojtubelog3, 128, 64, 1);	// 비트맵에 로고 그리기
 	SSD1306_UpdateScreen();	// 갱신
 	HAL_Delay(5000);
-	printfDefault();
+	printfDefault();		// 세팅온도값이 나오는 화면
 }
+
 void toggleScreen() {
 
 	if(m_toggle_count > 0) {
@@ -43,7 +44,7 @@ void toggleScreen() {
 			SSD1306_Clear();
 			SSD1306_UpdateScreen();
 			m_toggle = 1;
-		} else {
+		} else {	// 화면이 켜져있으면
 			printfBackground();
 			printTemperNoUpdate(getFixedTemper());
 			printHeaterState(OFF_t);
@@ -55,13 +56,13 @@ void toggleScreen() {
 	}
 }
 
-void startToggle() {
+void startToggle() {		// 세팅 버튼 눌렀을때 2회 토글
 	if (m_toggle_count == 0) {
 		m_toggle_count = 4;		// On -> Off -> On -> Off (실제로 2번깜빡임)
 	}
 }
 
-void printfDefault() {
+void printfDefault() {		// 세팅온도값이 나오는 화면
 	SSD1306_InvertDisplay(0);	//반전 해제
 	SSD1306_Clear();
 	SSD1306_GotoXY(1, 0);
@@ -80,7 +81,7 @@ void printfDefault() {
 
 }
 
-void printfBackground() {
+void printfBackground() {	// 온도 값을 변경할때 틀은 유지
 	SSD1306_InvertDisplay(0);
 	SSD1306_Clear();
 	SSD1306_GotoXY(1, 0);
@@ -89,7 +90,7 @@ void printfBackground() {
 	SSD1306_Puts("---------", &Font_11x18, 1);
 }
 
-void printTemperNoUpdate(int temper) {
+void printTemperNoUpdate(int temper) {	// 위 틀은 유지하고 설정 온도값만 변경
 	SSD1306_GotoXY(14, 38);
 	char temper_str[100] = "";
 	sprintf(temper_str, "%2d.0",temper);
@@ -104,10 +105,10 @@ void printTemper(int temper) {		// 설정 온도 출력하는 부분
 	SSD1306_UpdateScreen();
 }
 
-void printHeaterState(ON_OFF_t onOff) {
+void printHeaterState(ON_OFF_t onOff) {		// 히터 상태 표시
 	SSD1306_GotoXY(81, 38);
 	if (onOff == ON_t) {
-		SSD1306_Puts("On ", &Font_11x18, 1);	// 히터 상태 표시
+		SSD1306_Puts("On ", &Font_11x18, 1);
 	} else {
 		SSD1306_Puts("Off", &Font_11x18, 1);
 	}

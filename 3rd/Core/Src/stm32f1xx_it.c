@@ -222,10 +222,12 @@ void EXTI0_IRQHandler(void)	// 디바운스 처리(온도 Up)
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(PB0_TEMP_SET_UP_Pin);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
-	if ((HAL_GetTick() - m_button_before_time) > BUTTON_GAP) {
+	if ((HAL_GetTick() - m_button_before_time) > BUTTON_GAP) {		// 버튼 누른 시간간격이 최소 0.2초 이상이여야함
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0) == GPIO_PIN_RESET) {
 		g_f_sw_up = 1;		// 플래그 :사용자가 온도 UP 버튼을 누름
+		m_button_before_time = HAL_GetTick();
 	}
-	m_button_before_time = HAL_GetTick();
+	}
   /* USER CODE END EXTI0_IRQn 1 */
 }
 
@@ -239,10 +241,13 @@ void EXTI1_IRQHandler(void)	// 디바운스 처리(온도 세팅)
   /* USER CODE END EXTI1_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(PB1_TEMP_SET_FIX_Pin);
   /* USER CODE BEGIN EXTI1_IRQn 1 */
-  if ((HAL_GetTick() - m_button_before_time) > BUTTON_GAP) {
-  g_f_sw_fix = 1;
-  }
-	m_button_before_time = HAL_GetTick();
+	if ((HAL_GetTick() - m_button_before_time) > BUTTON_GAP) {
+		if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_1) == GPIO_PIN_RESET) {
+			g_f_sw_fix = 1;		// 플래그 : 사용자가 온도 설정 버튼을 누름
+			m_button_before_time = HAL_GetTick();
+		}
+
+	}
   /* USER CODE END EXTI1_IRQn 1 */
 }
 
@@ -257,9 +262,11 @@ void EXTI2_IRQHandler(void)	// 디바운스 처리(온도 Down)
   HAL_GPIO_EXTI_IRQHandler(PB2_TEMP_SET_DOWN_Pin);
   /* USER CODE BEGIN EXTI2_IRQn 1 */
   if((HAL_GetTick() - m_button_before_time) > BUTTON_GAP) {
-  g_f_sw_down = 1;		// 사용자가 온도 DOWN 버튼을 누름
+	  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_2) == GPIO_PIN_RESET) {
+		  	g_f_sw_down = 1;		// 플래그 : 사용자가 온도 DOWN 버튼을 누름
+		  	m_button_before_time = HAL_GetTick();
+	  }
   }
-	m_button_before_time = HAL_GetTick();
   /* USER CODE END EXTI2_IRQn 1 */
 }
 
